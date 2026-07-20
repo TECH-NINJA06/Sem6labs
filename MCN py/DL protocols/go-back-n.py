@@ -11,9 +11,11 @@ while i <= frames:
     for j in current_window:
         if random.random() < 0.2: 
             print(f"ACK lost for {j}. Going back.")
-            lost_frame = j
-            break
-        print(f"ACK received for {j}")
+            if lost_frame == 0:
+                lost_frame = j
+            # break
+        else:
+            print(f"ACK received for {j}")
         
     if lost_frame == 0:
         i += window
