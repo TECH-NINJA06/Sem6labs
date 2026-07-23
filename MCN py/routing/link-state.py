@@ -4,6 +4,7 @@ cost = [list(map(int, input().split())) for _ in range(n)]
 src = int(input("Enter source node: "))
 
 dist = cost[src][:]
+dist[src] = 0
 visited = [False] * n
 visited[src] = True
 

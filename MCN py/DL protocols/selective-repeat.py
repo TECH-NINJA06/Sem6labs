@@ -5,13 +5,11 @@ acked = [False] * (frames + 1)
 i = 1
 
 while i <= frames:
-    current_window = range(i, min(i + window, frames + 1))
-    
-    for j in current_window:
-        if not acked[j]: print(f"Sending Frame {j}")
+    current_window = range(i, min(i + window, frames + 1))    
         
     for j in current_window:
         if not acked[j]:
+            print(f"Sending Frame {j}")
             if random.random() > 0.2:
                 print(f"ACK received for {j}")
                 acked[j] = True
